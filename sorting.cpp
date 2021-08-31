@@ -137,4 +137,6 @@ signed main(){
 	selectionSort(arr,n);printArray(arr,n); 
 	cout<<"QUICK SORT => ";
 	quickSort(arr,0,n-1);printArray(arr,n);
+	cout<<"MERGE SORT => ";
+	mergeSort(arr,0,n-1);printArray(arr,n);
 }
