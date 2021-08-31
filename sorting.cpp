@@ -88,6 +88,37 @@ void quickSort(int *arr,int l,int h){
 }
 
 //MERGE SORT
+int b[1010]
+void merge(int *arr,int l,int m,int h){
+	int i=l;
+	int j=mid+1;
+	int k=l;
+	while(i<=mid and j<=h){
+		if(arr[i]<arr[j]){ b[k++]=a[i++];
+		else b[k++]=a[j++];
+	
+	}
+	if(i>mid){
+		while(j<=h){
+			b[k++]=a[j++];
+		}
+	}
+	else{
+		while(i<=mid){
+			b[k++]=a[i++];
+		}
+	}
+}
+
+void mergeSort(int *arr,int l,int h){
+	if(l<r){
+		int m=l+(h-l)/2;
+		mergeSort(arr,l,m);
+		mergeSort(arr,m+1,h);
+		merge(arr,l,m,h);
+	}
+}
+
 signed main(){
 	int n;cin>>n;
 	int arr[n];
