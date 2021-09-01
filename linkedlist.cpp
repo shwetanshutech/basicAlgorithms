@@ -130,38 +130,58 @@ class LinkedList{
 
          return second;
       }
+      auto remove_dupliates_sorted(auto head){
+         //1->2->2->3  => 1->2->3
+         auto cur=head;
+         while(cur->next!=NULL){
+            if(cur->data==cur->next->data){
+               auto temp=cur->next;
+               cur->next=temp->next;
+               delete temp;
+            }
+            else{
+               cur=cur->next;
+            }
+         }
+         return head;
+      }
 };
 signed main(){
           
    LinkedList * head=NULL;
-   head=head->add(1,head);
-   head=head->add(2,head);
-   head=head->add(3,head);
-   head=head->add(4,head);
-   head=head->add(5,head);
-   head->print(head);cout<<endl;
-   cout<<"MIDDLE ELEMENT IS : "<<head->getMiddle(head)<<endl;
-   cout<<"Deleting middle Element: ";
-   head=head->deleteMiddle(head);
-   head->print(head);
-   cout<<"\n";
-   head=head->add(3,head,3);
-   head->print(head);
-   cout<<"\n";
-   cout<<"Printing without reversing: ";
-   head->printReverse(head);
-   cout<<endl;
-   cout<<"Printing with reversing: ";
-   head=head->reverseLinkedlist(head);
-   head->print(head);cout<<"\n";
-   head=head->add(3,head,4);head->print(head);cout<<"\n";
+   // head=head->add(1,head);
+   // head=head->add(2,head);
+   // head=head->add(3,head);
+   // head=head->add(4,head);
+   // head=head->add(5,head);
+   // head->print(head);cout<<endl;
+   // cout<<"MIDDLE ELEMENT IS : "<<head->getMiddle(head)<<endl;
+   // cout<<"Deleting middle Element: ";
+   // head=head->deleteMiddle(head);
+   // head->print(head);
+   // cout<<"\n";
+   // head=head->add(3,head,3);
+   // head->print(head);
+   // cout<<"\n";
+   // cout<<"Printing without reversing: ";
+   // head->printReverse(head);
+   // cout<<endl;
+   // cout<<"Printing with reversing: ";
+   // head=head->reverseLinkedlist(head);
+   // head->print(head);cout<<"\n";
+   // head=head->add(3,head,4);head->print(head);cout<<"\n";
    
-   if(head->ispalindrome(head,head)) cout<<"It is palindromic LL";
-   else{ cout<<"Its not a palindromic LL";}
-   cout<<"\n";
+   // if(head->ispalindrome(head,head)) cout<<"It is palindromic LL";
+   // else{ cout<<"Its not a palindromic LL";}
+   // cout<<"\n";
   
    
-
+      head=head->add(1,head);
+      head=head->add(2,head);
+      head=head->add(2,head);
+      head=head->add(3,head);
+      head=head->remove_dupliates_sorted(head);
+      head->print(head);
 
    // cout<<"Deleting the LINKED List\n";
    // head=head->deleteLinkedList(head);
