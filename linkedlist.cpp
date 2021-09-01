@@ -145,6 +145,11 @@ class LinkedList{
          }
          return head;
       }
+      auto remove_dupliates_unsorted(auto head){
+         //hashing
+         set<int>s;
+         
+      }
 };
 signed main(){
           
@@ -176,10 +181,11 @@ signed main(){
    // cout<<"\n";
   
    
+      head=head->add(5,head);
       head=head->add(1,head);
-      head=head->add(2,head);
-      head=head->add(2,head);
-      head=head->add(3,head);
+      head=head->add(6,head);
+      head=head->add(1,head);
+      head=head->add(5,head);
       head=head->remove_dupliates_sorted(head);
       head->print(head);
 
