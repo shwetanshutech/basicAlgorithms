@@ -5,4 +5,5 @@
 - Modified BUBBLE SORT 
 - INSERTION SORT
 - SELECTION SORT 
-- QUICK SORT 
+- QUICK SORT
+- Merge Sort 
