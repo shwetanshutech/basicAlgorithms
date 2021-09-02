@@ -149,16 +149,16 @@ class LinkedList{
          //hashing
          set<lli> vis;
          auto cur=head,pre=cur;
-         while(cur->next){
-           if(s.count(cur->data)){
-               prev-.next=cur->next;
+         while(cur){
+           if(vis.count(cur->data)){
+               pre->next=cur->next;
                delete cur;
            }
            else{
-              s.inset(cur->data);
-              prev=cur;
+              vis.insert(cur->data);
+              pre=cur;
            }
-           cur=prev->next;
+           cur=pre->next;
          }
          return head;
 
@@ -199,9 +199,9 @@ signed main(){
       head=head->add(6,head);
       head=head->add(1,head);
       head=head->add(5,head);
-      head=head->remove_dupliates_sorted(head);
+      head=head->remove_dupliates_unsorted(head);
       head->print(head);
-
+      
    // cout<<"Deleting the LINKED List\n";
    // head=head->deleteLinkedList(head);
    // if(head==NULL)cout<<"List is empty";
