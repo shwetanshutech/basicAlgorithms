@@ -147,8 +147,21 @@ class LinkedList{
       }
       auto remove_dupliates_unsorted(auto head){
          //hashing
-         set<int>s;
-         
+         set<lli> vis;
+         auto cur=head,pre=cur;
+         while(cur->next){
+           if(s.count(cur->data)){
+               prev-.next=cur->next;
+               delete cur;
+           }
+           else{
+              s.inset(cur->data);
+              prev=cur;
+           }
+           cur=prev->next;
+         }
+         return head;
+
       }
 };
 signed main(){
