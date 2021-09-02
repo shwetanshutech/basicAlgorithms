@@ -163,6 +163,16 @@ class LinkedList{
          return head;
 
       }
+
+      bool detect_loop(auto head){
+         auto sp=head,fp=head;
+         while(fp and fp->next){
+             sp=sp->next;
+             fp=fp->next->next;
+             if(sp==fp) return true;
+         }
+         return false ;// null value aazegi 
+      }
 };
 signed main(){
           
@@ -194,13 +204,21 @@ signed main(){
    // cout<<"\n";
   
    
-      head=head->add(5,head);
       head=head->add(1,head);
+      head=head->add(2,head);
+      head=head->add(3,head);
+      head=head->add(4,head);
+      head=head->add(5,head);
       head=head->add(6,head);
-      head=head->add(1,head);
-      head=head->add(5,head);
-      head=head->remove_dupliates_unsorted(head);
-      head->print(head);
+      // head=head->remove_dupliates_unsorted(head);
+      //head->print(head);
+      
+      //create loop in linked list
+      auto cur=head,temp=head;
+      while(cur->next) cur=cur->next;
+      while(temp->data!=2) temp=temp->next;
+      cur->next=temp;
+      cout<<head->detect_loop(head);
       
    // cout<<"Deleting the LINKED List\n";
    // head=head->deleteLinkedList(head);
