@@ -10,6 +10,7 @@ class LinkedList{
       LinkedList(){
          this->next=NULL;
       }
+
       LinkedList(lli data){
          this->data=data;
          this->next=NULL;
@@ -30,6 +31,7 @@ class LinkedList{
         }
          return head;
       }
+
       LinkedList * add(lli data,LinkedList *head,int pos){
       
          if(head==NULL){
@@ -73,7 +75,7 @@ class LinkedList{
                sp=sp->next;
                fp=fp->next->next;
            }
-   return sp->data;
+         return sp->data;
       }  
 
    LinkedList *deleteMiddle(LinkedList* head){
@@ -173,10 +175,28 @@ class LinkedList{
          }
          return false ;// null value aazegi 
       }
+
+      LinkedList *remove_loop(auto head){
+         auto sp=head,fp=head;
+         while(fp and fp->next){
+            sp=sp->next;
+            fp=fp->next->next;
+            if(sp==fp)  break;
+         }
+         if(sp==fp){
+            sp=head;
+            while(sp->next!=fp->next){
+               sp=sp->next;
+               fp=fp->next;
+            }
+            fp->next=NULL;
+         }
+         return head;
+      }
 };
 signed main(){
           
-   LinkedList * head=NULL;
+   LinkedList * head1=NULL, *head2=NULL;
    // head=head->add(1,head);
    // head=head->add(2,head);
    // head=head->add(3,head);
@@ -202,7 +222,7 @@ signed main(){
    // if(head->ispalindrome(head,head)) cout<<"It is palindromic LL";
    // else{ cout<<"Its not a palindromic LL";}
    // cout<<"\n";
-  
+    
    
       head=head->add(1,head);
       head=head->add(2,head);
@@ -214,11 +234,13 @@ signed main(){
       //head->print(head);
       
       //create loop in linked list
-      auto cur=head,temp=head;
-      while(cur->next) cur=cur->next;
-      while(temp->data!=2) temp=temp->next;
-      cur->next=temp;
-      cout<<head->detect_loop(head);
+      // auto cur=head,temp=head;
+      // while(cur->next) cur=cur->next;
+      // while(temp->data!=2) temp=temp->next;
+      // cur->next=temp;
+      // cout<<head->detect_loop(head);
+      // head=head->remove_loop(head);
+      // cout<<head->detect_loop(head);
       
    // cout<<"Deleting the LINKED List\n";
    // head=head->deleteLinkedList(head);
